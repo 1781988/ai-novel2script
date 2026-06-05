@@ -15,7 +15,7 @@
 
 ## 当前状态
 
-当前分支完成了基础工程与小说导入解析能力：
+当前分支完成了基础工程、小说导入解析和 AI 生成主流程：
 
 - 微信小程序基础目录与工程配置
 - 首页
@@ -26,6 +26,10 @@
 - 章节检查页
 - `parseNovel` 云函数
 - `uploadNovelFile` 云函数
+- 多模型 LLM Client
+- DeepSeek / Gemini / OpenAI 云函数适配器
+- `extractInfo`、`planEpisodes`、`splitScenes`、`generateScript` 云函数
+- AI 生成页
 - 示例三章节小说
 - 剧本 Schema 初始文件
 
@@ -34,6 +38,10 @@
 ```text
 cloudfunctions/
   initProject/             创建小说改编项目的云函数
+  extractInfo/             抽取人物、地点、事件、冲突和人物关系
+  planEpisodes/            短剧分集规划
+  splitScenes/             场景拆分
+  generateScript/          生成结构化剧本 YAML
 examples/
   sample_novel_3chapters.txt
 miniprogram/
@@ -41,6 +49,7 @@ miniprogram/
   pages/project-create/    项目创建页
   pages/import/            小说导入页
   pages/chapter-review/    章节检查页
+  pages/generate/          AI 生成页
   pages/settings/          模型设置页
 schema/
   screenplay.schema.json   剧本结构校验 Schema
@@ -56,9 +65,11 @@ project.config.json        微信开发者工具工程配置
 3. 开通微信云开发环境。
 4. 在云数据库中创建 `projects` 集合。
 5. 在云数据库中创建 `chapters` 集合。
-6. 上传并部署 `cloudfunctions/initProject`、`cloudfunctions/parseNovel`、`cloudfunctions/uploadNovelFile`。
-7. 打开小程序首页，进入“新建改编项目”创建测试项目。
-8. 进入“导入小说文本”，粘贴或上传 3 章以上小说，查看章节检查结果。
+6. 在云数据库中创建 `extracted_infos`、`episodes`、`scripts`、`script_versions`、`generation_logs` 集合。
+7. 上传并部署 `cloudfunctions/initProject`、`cloudfunctions/parseNovel`、`cloudfunctions/uploadNovelFile`、`cloudfunctions/extractInfo`、`cloudfunctions/planEpisodes`、`cloudfunctions/splitScenes`、`cloudfunctions/generateScript`。
+8. 打开小程序首页，进入“新建改编项目”创建测试项目。
+9. 进入“导入小说文本”，粘贴或上传 3 章以上小说，查看章节检查结果。
+10. 在章节检查页进入 AI 生成页，生成剧本 YAML 初稿。
 
 ## 云函数
 
@@ -96,9 +107,53 @@ project.config.json        微信开发者工具工程配置
 
 解析上传的 TXT、Markdown、DOCX 文件，提取正文后交给章节解析流程。DOCX 正文提取使用 `mammoth`。
 
+### extractInfo
+
+抽取人物、地点、事件、冲突和人物关系，结果保存到 `extracted_infos` 集合。
+
+### planEpisodes
+
+根据章节摘要规划短剧分集，结果保存到 `episodes` 集合。
+
+### splitScenes
+
+把章节和分集拆成可拍摄场景，每个场景包含时间、地点、人物、冲突、摘要和 beats。
+
+### generateScript
+
+串联 AI 生成流程，生成结构化 YAML，并保存到 `scripts` 和 `script_versions` 集合。
+
 ## 模型配置
 
-API Key 不会写入小程序前端代码。后续模型调用会统一放在云函数中，通过云函数环境变量读取 DeepSeek、Gemini 或 OpenAI 的配置。
+API Key 不会写入小程序前端代码。模型调用统一放在云函数中，通过云函数环境变量读取 DeepSeek、Gemini 或 OpenAI 的配置。
+
+DeepSeek：
+
+```bash
+LLM_PROVIDER=deepseek
+DEEPSEEK_API_KEY=your_api_key
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-flash
+```
+
+Gemini：
+
+```bash
+LLM_PROVIDER=gemini
+GEMINI_API_KEY=your_api_key
+GEMINI_MODEL=gemini-2.5-flash
+```
+
+OpenAI：
+
+```bash
+LLM_PROVIDER=openai
+OPENAI_API_KEY=your_api_key
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_MODEL=gpt-4.1-mini
+```
+
+未配置 API Key 时，云函数会使用规则化降级结果生成可检查的 YAML，便于本地演示完整流程。
 
 ## 依赖说明
 
@@ -106,6 +161,7 @@ API Key 不会写入小程序前端代码。后续模型调用会统一放在云
 - 微信云开发
 - `wx-server-sdk`：云函数访问云数据库和用户上下文
 - `mammoth`：DOCX 小说正文提取
+- `js-yaml`：后续 YAML 解析与格式处理
 
 ## Demo
 

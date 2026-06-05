@@ -1,0 +1,31 @@
+.episode-card {
+  margin-bottom: 18rpx;
+  padding: 22rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.episode-head {
+  display: flex;
+  justify-content: space-between;
+  color: #6b7787;
+  font-size: 24rpx;
+}
+
+.card-title {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.desc {
+  margin-top: 12rpx;
+  color: #415166;
+  line-height: 1.5;
+}
+
+.hook {
+  margin-top: 12rpx;
+  color: #9a3d11;
+}

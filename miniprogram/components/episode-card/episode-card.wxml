@@ -1,0 +1,9 @@
+<view class="episode-card">
+  <view class="episode-head">
+    <text>第 {{episode.order}} 集</text>
+    <text class="muted">{{episode.episodeId}}</text>
+  </view>
+  <view class="card-title">{{episode.title}}</view>
+  <view class="desc">{{episode.summary}}</view>
+  <view class="hook">{{episode.hook}}</view>
+</view>

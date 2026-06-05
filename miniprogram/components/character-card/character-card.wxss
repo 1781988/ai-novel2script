@@ -1,0 +1,24 @@
+.info-card {
+  margin-bottom: 18rpx;
+  padding: 22rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.muted {
+  margin-top: 6rpx;
+  color: #6b7787;
+  font-size: 24rpx;
+}
+
+.desc {
+  margin-top: 12rpx;
+  color: #415166;
+  line-height: 1.5;
+}
