@@ -15,13 +15,17 @@
 
 ## 当前状态
 
-当前分支完成了第一阶段基础工程：
+当前分支完成了基础工程与小说导入解析能力：
 
 - 微信小程序基础目录与工程配置
 - 首页
 - 项目创建页
 - 模型设置页
 - `initProject` 云函数
+- 小说导入页
+- 章节检查页
+- `parseNovel` 云函数
+- `uploadNovelFile` 云函数
 - 示例三章节小说
 - 剧本 Schema 初始文件
 
@@ -35,6 +39,8 @@ examples/
 miniprogram/
   pages/index/             首页
   pages/project-create/    项目创建页
+  pages/import/            小说导入页
+  pages/chapter-review/    章节检查页
   pages/settings/          模型设置页
 schema/
   screenplay.schema.json   剧本结构校验 Schema
@@ -49,8 +55,10 @@ project.config.json        微信开发者工具工程配置
 2. 确认小程序目录为 `miniprogram/`，云函数目录为 `cloudfunctions/`。
 3. 开通微信云开发环境。
 4. 在云数据库中创建 `projects` 集合。
-5. 上传并部署 `cloudfunctions/initProject`。
-6. 打开小程序首页，进入“新建改编项目”创建测试项目。
+5. 在云数据库中创建 `chapters` 集合。
+6. 上传并部署 `cloudfunctions/initProject`、`cloudfunctions/parseNovel`、`cloudfunctions/uploadNovelFile`。
+7. 打开小程序首页，进入“新建改编项目”创建测试项目。
+8. 进入“导入小说文本”，粘贴或上传 3 章以上小说，查看章节检查结果。
 
 ## 云函数
 
@@ -80,6 +88,14 @@ project.config.json        微信开发者工具工程配置
 }
 ```
 
+### parseNovel
+
+清洗小说文本并识别章节，支持“第一章”“第1章”“Chapter 1”“Markdown 章节标题”等格式。传入 `projectId` 时会把章节保存到 `chapters` 集合。
+
+### uploadNovelFile
+
+解析上传的 TXT、Markdown、DOCX 文件，提取正文后交给章节解析流程。DOCX 正文提取使用 `mammoth`。
+
 ## 模型配置
 
 API Key 不会写入小程序前端代码。后续模型调用会统一放在云函数中，通过云函数环境变量读取 DeepSeek、Gemini 或 OpenAI 的配置。
@@ -89,6 +105,7 @@ API Key 不会写入小程序前端代码。后续模型调用会统一放在云
 - 微信小程序原生框架
 - 微信云开发
 - `wx-server-sdk`：云函数访问云数据库和用户上下文
+- `mammoth`：DOCX 小说正文提取
 
 ## Demo
 

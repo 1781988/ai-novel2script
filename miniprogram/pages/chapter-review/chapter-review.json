@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "章节检查",
+  "usingComponents": {
+    "chapter-card": "/components/chapter-card/chapter-card"
+  }
+}
