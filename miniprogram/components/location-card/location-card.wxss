@@ -1,0 +1,33 @@
+.info-card {
+  margin-bottom: 18rpx;
+  padding: 22rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.desc {
+  margin-top: 12rpx;
+  color: #415166;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 14rpx;
+}
+
+.tag {
+  padding: 6rpx 12rpx;
+  border-radius: 8rpx;
+  color: #1f6feb;
+  background: #eaf0f8;
+  font-size: 24rpx;
+}

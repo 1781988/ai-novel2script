@@ -42,6 +42,6 @@ Page({
       wx.showToast({ title: "至少需要 3 个章节", icon: "none" });
       return;
     }
-    wx.showToast({ title: "AI 生成将在 PR3 接入", icon: "none" });
+    wx.navigateTo({ url: "/pages/generate/generate" });
   }
 });

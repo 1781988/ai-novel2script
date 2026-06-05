@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "AI 生成",
+  "usingComponents": {
+    "character-card": "/components/character-card/character-card",
+    "location-card": "/components/location-card/location-card",
+    "episode-card": "/components/episode-card/episode-card"
+  }
+}

@@ -4,6 +4,7 @@
     "pages/project-create/project-create",
     "pages/import/import",
     "pages/chapter-review/chapter-review",
+    "pages/generate/generate",
     "pages/settings/settings"
   ],
   "window": {

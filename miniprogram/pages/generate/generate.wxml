@@ -1,0 +1,40 @@
+<view class="page generate-page">
+  <view class="panel">
+    <view class="page-title">AI 剧本生成</view>
+    <view class="muted">按信息抽取、分集规划、场景拆分和 YAML 生成分阶段执行。</view>
+
+    <label class="field-label">项目 ID</label>
+    <input value="{{projectId}}" placeholder="可选，填写后会从云数据库读取章节并保存结果" bindinput="onProjectIdInput" />
+
+    <button class="primary-button submit-button" bindtap="startGenerate" loading="{{generating}}">开始生成剧本 YAML</button>
+  </view>
+
+  <view class="section panel">
+    <view class="panel-title">生成进度</view>
+    <view class="step-row {{item.status}}" wx:for="{{steps}}" wx:key="name">
+      <text class="step-dot"></text>
+      <text>{{item.name}}</text>
+      <text class="step-status">{{item.statusText}}</text>
+    </view>
+  </view>
+
+  <view class="section panel" wx:if="{{characters.length}}">
+    <view class="panel-title">人物</view>
+    <character-card wx:for="{{characters}}" wx:key="characterId" character="{{item}}" />
+  </view>
+
+  <view class="section panel" wx:if="{{locations.length}}">
+    <view class="panel-title">地点</view>
+    <location-card wx:for="{{locations}}" wx:key="locationId" location="{{item}}" />
+  </view>
+
+  <view class="section panel" wx:if="{{episodes.length}}">
+    <view class="panel-title">短剧分集</view>
+    <episode-card wx:for="{{episodes}}" wx:key="episodeId" episode="{{item}}" />
+  </view>
+
+  <view class="section panel" wx:if="{{yamlContent}}">
+    <view class="panel-title">YAML 初稿</view>
+    <textarea class="yaml-output" value="{{yamlContent}}" maxlength="-1" disabled></textarea>
+  </view>
+</view>

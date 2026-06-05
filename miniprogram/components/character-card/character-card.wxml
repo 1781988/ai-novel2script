@@ -1,0 +1,5 @@
+<view class="info-card">
+  <view class="card-title">{{character.name}}</view>
+  <view class="muted">{{character.roleType || character.role_type}}</view>
+  <view class="desc">{{character.description}}</view>
+</view>

@@ -1,0 +1,7 @@
+<view class="info-card">
+  <view class="card-title">{{location.name}}</view>
+  <view class="desc">{{location.description}}</view>
+  <view class="tags">
+    <text class="tag" wx:for="{{location.atmosphere}}" wx:key="*this">{{item}}</text>
+  </view>
+</view>
