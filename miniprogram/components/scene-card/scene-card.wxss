@@ -1,9 +1,9 @@
 .scene-card {
   margin-bottom: 20rpx;
   padding: 22rpx;
-  border: 1rpx solid #d9e1ec;
+  border: 1rpx solid rgba(255, 221, 160, 0.18);
   border-radius: 8rpx;
-  background: #ffffff;
+  background: rgba(22, 31, 45, 0.92);
 }
 
 .scene-head {
@@ -15,11 +15,12 @@
 .scene-title {
   font-size: 30rpx;
   font-weight: 700;
+  color: #fff7e7;
 }
 
 .muted,
 .meta {
-  color: #6b7787;
+  color: #aeb9c8;
   font-size: 24rpx;
 }
 
@@ -30,17 +31,17 @@
 }
 
 .conflict {
-  color: #9a3d11;
+  color: #ffd27a;
 }
 
 .beat {
   display: grid;
   grid-template-columns: 130rpx 1fr;
   gap: 12rpx;
-  color: #415166;
+  color: #d5deea;
   line-height: 1.5;
 }
 
 .beat-type {
-  color: #1f6feb;
+  color: #ffd27a;
 }

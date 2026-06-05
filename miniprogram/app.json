@@ -14,9 +14,9 @@
   ],
   "window": {
     "navigationBarTitleText": "章幕引擎",
-    "navigationBarBackgroundColor": "#172331",
+    "navigationBarBackgroundColor": "#101723",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#f5f7fb"
+    "backgroundColor": "#101723"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
