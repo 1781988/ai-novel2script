@@ -1,161 +1,96 @@
 # 章幕引擎 ChapterStage
 
-章幕引擎是一款面向小说作者和短剧创作者的 AI 辅助改编工具。它计划把 3 个章节以上的小说文本转换为结构化剧本 YAML，提供可继续编辑、校验和导出的剧本初稿。
+## 1. 项目简介
 
-项目采用微信小程序 + 微信云开发实现。前端负责小说导入、生成流程展示和剧本编辑，云函数负责项目数据、章节解析、模型调用、YAML 生成与校验。
+章幕引擎是一款 AI 小说转剧本微信小程序，面向小说作者、短剧编剧和内容团队。用户导入 3 个章节以上的小说文本后，系统会完成章节识别、信息抽取、短剧分集、场景拆分、结构化 YAML 生成、校验修复、可视化编辑、版本保存和多格式导出。
 
-## 功能规划
+## 2. 赛题对应关系
 
-- 小说项目创建：记录项目名称、小说标题、作者、题材和短剧目标时长。
-- 多章节小说导入：支持粘贴文本，并计划支持 TXT、Markdown、DOCX 文件。
-- AI 剧本生成：抽取人物、地点、事件、冲突和人物关系，规划短剧分集并生成场景。
-- YAML 结构化输出：使用 Schema 校验剧本结构，便于后续编辑和导出。
-- 剧本编辑与版本管理：支持场景调整、对白润色、多版本保存和历史恢复。
-- 多格式导出：计划支持 YAML、Markdown 和 TXT 剧本导出。
+赛题要求将 3 个章节以上小说文本自动转换为结构化剧本 YAML，并提供 YAML Schema 设计说明、README 和 Demo 视频。本项目对应实现：
 
-## 当前状态
+- 支持 3 章以上小说输入与章节有效性校验。
+- 支持 TXT、Markdown、DOCX 文件解析。
+- 支持 DeepSeek、Gemini、OpenAI 多模型云函数接入。
+- 生成包含 metadata、source、characters、relations、locations、episodes、scenes、beats 的剧本 YAML。
+- 使用 `schema/screenplay.schema.json` 描述和校验剧本结构。
+- 支持 YAML / Markdown / TXT 导出。
 
-当前分支完成了基础工程、小说导入解析、AI 生成主流程和剧本质量控制能力：
+## 3. 核心功能
 
-- 微信小程序基础目录与工程配置
-- 首页
-- 项目创建页
-- 模型设置页
-- `initProject` 云函数
-- 小说导入页
-- 章节检查页
-- `parseNovel` 云函数
-- `uploadNovelFile` 云函数
-- 多模型 LLM Client
-- DeepSeek / Gemini / OpenAI 云函数适配器
-- `extractInfo`、`planEpisodes`、`splitScenes`、`generateScript` 云函数
-- AI 生成页
-- YAML Schema 校验与 AI 修复云函数
-- 剧本预览、场景编辑、YAML 编辑、人物关系图、版本记录页面
-- 对白润色和版本保存云函数
-- 示例三章节小说
-- 剧本 Schema 初始文件
+- 小说项目创建
+- 小说文本粘贴和文件导入
+- 自动章节识别和章节检查
+- 人物、地点、事件、冲突和人物关系抽取
+- 短剧分集规划
+- 剧本场景拆分
+- 结构化 YAML 生成
+- YAML Schema 校验和 AI 修复
+- 剧本预览、场景编辑、对白润色
+- 人物关系图
+- 版本保存和恢复
+- YAML / Markdown / TXT 导出
 
-## 项目结构
+## 4. 技术架构
 
 ```text
-cloudfunctions/
-  initProject/             创建小说改编项目的云函数
-  extractInfo/             抽取人物、地点、事件、冲突和人物关系
-  planEpisodes/            短剧分集规划
-  splitScenes/             场景拆分
-  generateScript/          生成结构化剧本 YAML
-  validateYaml/            YAML Schema 校验
-  repairYaml/              AI 修复 YAML
-  polishDialogue/          对白润色
-  saveVersion/             保存剧本版本
-examples/
-  sample_novel_3chapters.txt
-miniprogram/
-  pages/index/             首页
-  pages/project-create/    项目创建页
-  pages/import/            小说导入页
-  pages/chapter-review/    章节检查页
-  pages/generate/          AI 生成页
-  pages/script-preview/    剧本预览页
-  pages/scene-editor/      场景编辑页
-  pages/yaml-editor/       YAML 编辑页
-  pages/relation-graph/    人物关系图页
-  pages/version-history/   版本记录页
-  pages/settings/          模型设置页
-schema/
-  screenplay.schema.json   剧本结构校验 Schema
-project.config.json        微信开发者工具工程配置
+微信小程序前端
+  → 页面交互、导入、预览、编辑、导出
+
+微信云开发
+  → 云数据库、云存储、云函数
+
+AI 服务层
+  → DeepSeek / Gemini / OpenAI Adapter
+  → Unified LLM Client
+
+结构化处理层
+  → 章节解析、信息抽取、分集规划、场景拆分、YAML 生成、Schema 校验
 ```
 
-`project.config.json` 是微信开发者工具需要的工程配置文件，用于定位小程序源码目录和云函数目录，因此保留在仓库根目录。个人本地配置 `project.private.config.json` 不提交。
+## 5. 小程序页面说明
 
-## 本地运行
+- 首页：项目入口、导入入口、模型设置入口。
+- 项目创建页：创建小说改编项目。
+- 小说导入页：粘贴文本或上传 TXT、Markdown、DOCX。
+- 章节检查页：展示章节列表、字数和 3 章校验。
+- AI 生成页：展示生成进度并输出 YAML 初稿。
+- 剧本预览页：查看人物、地点、分集和场景。
+- 场景编辑页：编辑场景字段、beats 和对白润色。
+- YAML 编辑页：编辑、校验、修复和保存 YAML。
+- 人物关系图页：Canvas 展示人物节点与关系。
+- 版本记录页：查看和恢复历史版本。
+- 设置页：选择模型服务商，不输入 API Key。
 
-1. 使用微信开发者工具导入本仓库。
-2. 确认小程序目录为 `miniprogram/`，云函数目录为 `cloudfunctions/`。
-3. 开通微信云开发环境。
-4. 在云数据库中创建 `projects` 集合。
-5. 在云数据库中创建 `chapters` 集合。
-6. 在云数据库中创建 `extracted_infos`、`episodes`、`scripts`、`script_versions`、`generation_logs` 集合。
-7. 上传并部署 `cloudfunctions/initProject`、`cloudfunctions/parseNovel`、`cloudfunctions/uploadNovelFile`、`cloudfunctions/extractInfo`、`cloudfunctions/planEpisodes`、`cloudfunctions/splitScenes`、`cloudfunctions/generateScript`、`cloudfunctions/validateYaml`、`cloudfunctions/repairYaml`、`cloudfunctions/polishDialogue`、`cloudfunctions/saveVersion`。
-8. 打开小程序首页，进入“新建改编项目”创建测试项目。
-9. 进入“导入小说文本”，粘贴或上传 3 章以上小说，查看章节检查结果。
-10. 在章节检查页进入 AI 生成页，生成剧本 YAML 初稿。
+## 6. 云函数说明
 
-## 云函数
+- `initProject`：创建项目。
+- `parseNovel`：清洗文本并识别章节。
+- `uploadNovelFile`：解析 TXT、Markdown、DOCX 文件。
+- `extractInfo`：抽取人物、地点、事件、冲突和关系。
+- `planEpisodes`：规划短剧分集。
+- `splitScenes`：拆分剧本场景。
+- `generateScript`：生成结构化剧本 YAML。
+- `validateYaml`：校验 YAML 是否符合 Schema。
+- `repairYaml`：根据错误修复 YAML。
+- `polishDialogue`：润色对白。
+- `saveVersion`：保存剧本版本。
+- `exportScript`：导出 YAML、Markdown、TXT 并上传云存储。
 
-### initProject
+## 7. 数据库集合说明
 
-创建一个小说改编项目，并写入 `projects` 集合。
+- `projects`：项目基础信息。
+- `chapters`：章节标题、顺序、原文、清洗文本和字数。
+- `extracted_infos`：人物、地点、事件、冲突和人物关系。
+- `episodes`：短剧分集规划。
+- `scripts`：当前剧本 YAML 和 JSON 内容。
+- `script_versions`：剧本历史版本。
+- `generation_logs`：AI 生成日志。
 
-请求示例：
+## 8. 大模型配置方式
 
-```json
-{
-  "projectName": "雨夜来客改编",
-  "novelTitle": "雨夜来客",
-  "authorName": "示例作者",
-  "genre": "悬疑",
-  "targetType": "short_drama",
-  "episodeTargetMinutes": 5
-}
-```
+API Key 只允许配置在云函数环境变量中，不写入小程序前端。
 
-返回示例：
-
-```json
-{
-  "success": true,
-  "projectId": "project_id"
-}
-```
-
-### parseNovel
-
-清洗小说文本并识别章节，支持“第一章”“第1章”“Chapter 1”“Markdown 章节标题”等格式。传入 `projectId` 时会把章节保存到 `chapters` 集合。
-
-### uploadNovelFile
-
-解析上传的 TXT、Markdown、DOCX 文件，提取正文后交给章节解析流程。DOCX 正文提取使用 `mammoth`。
-
-### extractInfo
-
-抽取人物、地点、事件、冲突和人物关系，结果保存到 `extracted_infos` 集合。
-
-### planEpisodes
-
-根据章节摘要规划短剧分集，结果保存到 `episodes` 集合。
-
-### splitScenes
-
-把章节和分集拆成可拍摄场景，每个场景包含时间、地点、人物、冲突、摘要和 beats。
-
-### generateScript
-
-串联 AI 生成流程，生成结构化 YAML，并保存到 `scripts` 和 `script_versions` 集合。
-
-### validateYaml
-
-解析剧本 YAML，并检查 `schema_version`、`metadata`、`source`、`characters`、`episodes`、`scenes` 和场景 beats。
-
-### repairYaml
-
-根据校验错误修复 YAML。配置模型 API Key 时调用大模型；未配置时使用规则化修复保证基础结构完整。
-
-### polishDialogue
-
-润色单句对白，让 dialogue beat 更口语、更有戏剧张力。
-
-### saveVersion
-
-把用户编辑后的 YAML 保存为新的剧本版本。
-
-## 模型配置
-
-API Key 不会写入小程序前端代码。模型调用统一放在云函数中，通过云函数环境变量读取 DeepSeek、Gemini 或 OpenAI 的配置。
-
-DeepSeek：
+### 8.1 使用 DeepSeek
 
 ```bash
 LLM_PROVIDER=deepseek
@@ -164,7 +99,7 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-v4-flash
 ```
 
-Gemini：
+### 8.2 使用 Gemini
 
 ```bash
 LLM_PROVIDER=gemini
@@ -172,7 +107,7 @@ GEMINI_API_KEY=your_api_key
 GEMINI_MODEL=gemini-2.5-flash
 ```
 
-OpenAI：
+### 8.3 使用 OpenAI
 
 ```bash
 LLM_PROVIDER=openai
@@ -181,17 +116,124 @@ OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-4.1-mini
 ```
 
-未配置 API Key 时，云函数会使用规则化降级结果生成可检查的 YAML，便于本地演示完整流程。
+未配置 API Key 时，部分云函数会使用规则化降级结果，便于本地演示完整流程。
 
-## 依赖说明
+## 9. YAML Schema 说明
+
+Schema 文件位于 `schema/screenplay.schema.json`。设计原因：
+
+- `metadata` 保存项目、题材、章节数、模型和生成时间，方便追踪来源。
+- `source.chapters` 保留原小说章节映射，确保改编结果可回溯。
+- `characters`、`locations`、`relations` 分开建模，方便编辑和关系图展示。
+- `episodes` 表达短剧分集，保留每集来源章节、摘要和钩子。
+- `scenes` 表达可拍摄场景，每场包含时间、地点、人物、冲突、摘要和 beats。
+- `beats` 使用 action、dialogue、narration、transition 枚举，便于导出和编辑器校验。
+
+## 10. 示例输入输出
+
+示例输入：
+
+- `examples/sample_novel_3chapters.txt`
+
+示例输出：
+
+- `examples/sample_output.yaml`
+- `examples/sample_output.txt`
+
+Markdown 导出格式示例：
+
+```md
+# 雨夜来客
+
+## 人物表
+
+- 林澈：年轻记者，追查父亲失踪真相。
+
+## 第 1 集：雨夜来信
+
+### 第 1 场：雨夜中的匿名信
+
+时间：深夜
+地点：林澈出租屋
+人物：林澈
+
+动作：林澈拆开被雨水打湿的信封。
+林澈：三年前的事，终于有人愿意说了吗？
+```
+
+## 11. 本地运行方式
+
+1. 使用微信开发者工具导入本仓库。
+2. 确认小程序目录为 `miniprogram/`，云函数目录为 `cloudfunctions/`。
+3. 开通微信云开发环境。
+4. 创建 README 第 7 节列出的云数据库集合。
+5. 上传并部署云函数。
+6. 打开小程序首页，新建项目。
+7. 导入 3 章以上小说并执行 AI 生成。
+8. 在剧本预览页编辑、校验、保存和导出剧本。
+
+## 12. 云函数部署方式
+
+在微信开发者工具中逐个右键云函数目录，选择“上传并部署：云端安装依赖”。需要部署：
+
+```text
+initProject
+parseNovel
+uploadNovelFile
+extractInfo
+planEpisodes
+splitScenes
+generateScript
+validateYaml
+repairYaml
+polishDialogue
+saveVersion
+exportScript
+```
+
+## 13. Demo 视频链接
+
+Demo 视频链接：待上传后填写。
+
+## 14. 依赖说明
 
 - 微信小程序原生框架
 - 微信云开发
-- `wx-server-sdk`：云函数访问云数据库和用户上下文
-- `mammoth`：DOCX 小说正文提取
-- `js-yaml`：后续 YAML 解析与格式处理
-- `ajv`：YAML Schema 校验
+- `wx-server-sdk`：云函数访问云数据库、云存储和用户上下文
+- `mammoth`：DOCX 正文提取
+- `js-yaml`：YAML 解析和导出
+- `ajv`：JSON Schema 校验
+- DeepSeek API：AI 剧本生成
+- Gemini API：AI 剧本生成
+- OpenAI API：AI 剧本生成
 
-## Demo
+## 15. 原创功能说明
 
-Demo 视频将在核心功能完成后补充。
+本项目原创实现以下功能：
+
+1. 小说章节自动识别与章节有效性校验。
+2. 多章节小说到剧本的分阶段 AI 生成流程。
+3. 面向小说改编剧本的 YAML Schema。
+4. 人物、地点、事件、冲突和人物关系抽取流程。
+5. 短剧分集规划逻辑。
+6. 小说章节到剧本场景的映射机制。
+7. YAML Schema 校验与 AI 自动修复流程。
+8. 场景卡片化编辑与 beats 顺序调整。
+9. 单句对白 AI 润色。
+10. 人物关系图可视化。
+11. 剧本多版本保存与恢复。
+12. YAML / Markdown / TXT 多格式导出。
+
+## 16. 5 次 PR 开发记录
+
+1. PR1：项目初始化、小程序基础页面、云开发结构。
+2. PR2：小说导入、TXT/Markdown/DOCX 解析、章节识别。
+3. PR3：多模型 AI 接入、信息抽取、分集规划、场景拆分、YAML 生成。
+4. PR4：YAML Schema 校验、AI 修复、剧本预览、编辑、关系图、版本管理。
+5. PR5：导出功能、README、示例输出和最终比赛材料。
+
+## 17. 后续维护说明
+
+- 上传 Demo 视频后更新第 13 节链接。
+- 根据评审环境配置对应模型 API Key。
+- 后续可继续增强拖拽交互、Schema 严格度和导出样式。

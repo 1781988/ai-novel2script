@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+metadata:
+  title: "雨夜来客"
+  source_type: "novel"
+  target_type: "short_drama_script"
+  genre: "悬疑"
+  language: "zh-CN"
+  chapter_count: 3
+  episode_count: 1
+source:
+  novel_title: "雨夜来客"
+  author: "示例作者"
+  chapters:
+    - chapter_id: "chapter_001"
+      title: "第一章 雨夜来信"
+      order: 1
+      summary: "林澈收到匿名信。"
+characters:
+  - characterId: "char_001"
+    name: "林澈"
+    roleType: "protagonist"
+    description: "年轻记者，追查父亲失踪真相。"
+locations:
+  - locationId: "loc_001"
+    name: "顾家老宅"
+    description: "废弃多年的老宅。"
+episodes:
+  - episodeId: "ep_001"
+    title: "雨夜来信"
+    order: 1
+    sourceChapters:
+      - "chapter_001"
+      - "chapter_002"
+      - "chapter_003"
+    summary: "主角收到匿名信并进入老宅调查。"
+    hook: "地下室传来异响。"
+scenes:
+  - sceneId: "scene_001"
+    episodeId: "ep_001"
+    chapterId: "chapter_001"
+    title: "雨夜中的匿名信"
+    time: "深夜"
+    location: "林澈出租屋"
+    characters:
+      - "林澈"
+    conflict: "林澈是否相信匿名信内容"
+    summary: "林澈收到匿名信。"
+    beats:
+      - type: "action"
+        content: "林澈拆开被雨水打湿的信封。"
+      - type: "dialogue"
+        speaker: "林澈"
+        content: "三年前的事，终于有人愿意说了吗？"
