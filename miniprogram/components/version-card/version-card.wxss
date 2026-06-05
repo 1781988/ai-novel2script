@@ -1,9 +1,10 @@
 .version-card {
   margin-bottom: 18rpx;
   padding: 22rpx;
-  border: 1rpx solid rgba(255, 221, 160, 0.18);
-  border-radius: 8rpx;
-  background: rgba(22, 31, 45, 0.92);
+  border: 1rpx solid rgba(122, 101, 255, 0.12);
+  border-radius: 24rpx;
+  background: #ffffff;
+  box-shadow: 0 14rpx 36rpx rgba(78, 91, 177, 0.1);
 }
 
 .head {
@@ -14,14 +15,14 @@
 
 .title {
   font-weight: 700;
-  color: #fff7e7;
+  color: #111a3b;
 }
 
 .muted {
-  color: #aeb9c8;
+  color: #697189;
 }
 
 .summary {
   margin: 12rpx 0;
-  color: #d5deea;
+  color: #4f5873;
 }

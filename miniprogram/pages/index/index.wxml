@@ -1,22 +1,37 @@
 <view class="page home-page">
-  <view class="stage-hero">
-    <view class="curtain-line"></view>
-    <view class="brand-row">
-      <text class="brand-mark">CS</text>
-      <text class="eyebrow">ChapterStage</text>
+  <view class="top-brand">
+    <view class="brand-icon">✒</view>
+    <view>
+      <view class="app-name">章幕引擎</view>
+      <view class="app-sub">AI小说改编工具</view>
     </view>
-    <text class="title">章幕引擎</text>
-    <text class="subtitle">把小说章节压入叙事引擎，输出人物、分集、场景与可校验的剧本 YAML。</text>
+  </view>
+
+  <view class="stage-hero">
+    <view class="hero-content">
+      <text class="eyebrow">ChapterStage</text>
+      <text class="title">章幕引擎</text>
+      <text class="subtitle">把小说章节压入叙事引擎，输出人物、分集、场景与可校验的剧本 YAML。</text>
+    </view>
+    <view class="hero-art">
+      <view class="paper-roll"></view>
+      <view class="quill"></view>
+      <view class="star star-a">✦</view>
+      <view class="star star-b">✦</view>
+    </view>
     <view class="metrics">
       <view class="metric">
+        <text class="metric-icon">▤</text>
         <text class="metric-value">3+</text>
         <text class="metric-label">章节输入</text>
       </view>
       <view class="metric">
+        <text class="metric-icon green">▧</text>
         <text class="metric-value">YAML</text>
         <text class="metric-label">结构剧本</text>
       </view>
       <view class="metric">
+        <text class="metric-icon">☻</text>
         <text class="metric-value">AI</text>
         <text class="metric-label">分阶段生成</text>
       </view>
@@ -24,21 +39,51 @@
   </view>
 
   <view class="actions">
-    <button class="primary-button action-main" bindtap="goCreate">启动改编工程</button>
     <view class="action-grid">
-      <button class="secondary-button" bindtap="goImport">导入小说</button>
-      <button class="secondary-button" bindtap="useSample">示例体验</button>
-      <button class="secondary-button" bindtap="showComingSoon">历史剧本</button>
-      <button class="secondary-button" bindtap="goSettings">模型设置</button>
+      <view class="tool" bindtap="goImport">
+        <view class="tool-icon purple">▰</view>
+        <view class="tool-title">导入小说</view>
+        <view class="tool-sub">多格式支持</view>
+      </view>
+      <view class="tool" bindtap="useSample">
+        <view class="tool-icon green">▤</view>
+        <view class="tool-title">示例体验</view>
+        <view class="tool-sub">快速上手</view>
+      </view>
+      <view class="tool" bindtap="showComingSoon">
+        <view class="tool-icon blue">◷</view>
+        <view class="tool-title">历史剧本</view>
+        <view class="tool-sub">查看记录</view>
+      </view>
+      <view class="tool" bindtap="goSettings">
+        <view class="tool-icon orange">⚙</view>
+        <view class="tool-title">模型设置</view>
+        <view class="tool-sub">AI模型配置</view>
+      </view>
     </view>
+    <button class="primary-button action-main" bindtap="goCreate">✧ 启动改编工程</button>
   </view>
 
   <view class="section panel">
-    <view class="panel-title">改编流水线</view>
+    <view class="panel-head">
+      <view class="panel-title">改编流水线</view>
+      <view class="panel-link">查看全部流程 ›</view>
+    </view>
     <view class="flow-row" wx:for="{{flow}}" wx:key="name">
       <text class="flow-index">{{index + 1}}</text>
-      <text class="flow-name">{{item.name}}</text>
-      <text class="muted">{{item.desc}}</text>
+      <view class="flow-copy">
+        <text class="flow-name">{{item.name}}</text>
+        <text class="muted">{{item.desc}}</text>
+      </view>
+      <text class="flow-icon {{item.color}}">{{item.icon}}</text>
     </view>
+  </view>
+
+  <view class="tabbar">
+    <view class="tab active">⌂<text>首页</text></view>
+    <view class="tab">▣<text>工程</text></view>
+    <view class="tab create">✒<text>创建</text></view>
+    <view class="tab">⌬<text>关系图</text></view>
+    <view class="tab">♙<text>我的</text></view>
   </view>
 </view>

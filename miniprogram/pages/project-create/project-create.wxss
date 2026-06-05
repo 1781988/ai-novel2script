@@ -2,14 +2,14 @@
   margin-bottom: 12rpx;
   font-size: 42rpx;
   font-weight: 700;
-  color: #fff7e7;
+  color: #111a3b;
 }
 
 .picker-value {
   display: flex;
   align-items: center;
   min-height: 88rpx;
-  color: #f5efe3;
+  color: #111a3b;
 }
 
 .submit-button {

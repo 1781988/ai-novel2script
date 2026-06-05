@@ -2,14 +2,14 @@
   margin-bottom: 12rpx;
   font-size: 42rpx;
   font-weight: 700;
-  color: #fff7e7;
+  color: #111a3b;
 }
 
 .panel-title {
   margin-bottom: 16rpx;
   font-size: 32rpx;
   font-weight: 700;
-  color: #fff7e7;
+  color: #111a3b;
 }
 
 .button-grid {
@@ -21,8 +21,8 @@
 
 .list-row {
   padding: 14rpx 0;
-  border-top: 1rpx solid rgba(255, 255, 255, 0.08);
-  color: #d5deea;
+  border-top: 1rpx solid #edf0f8;
+  color: #4f5873;
   line-height: 1.5;
 }
 
