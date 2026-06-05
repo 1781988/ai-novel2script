@@ -35,6 +35,10 @@
 
   <view class="section panel" wx:if="{{yamlContent}}">
     <view class="panel-title">YAML 初稿</view>
+    <view class="button-grid">
+      <button class="secondary-button" bindtap="goPreview">预览剧本</button>
+      <button class="secondary-button" bindtap="goYamlEditor">编辑 YAML</button>
+    </view>
     <textarea class="yaml-output" value="{{yamlContent}}" maxlength="-1" disabled></textarea>
   </view>
 </view>

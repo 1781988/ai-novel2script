@@ -1,0 +1,46 @@
+.scene-card {
+  margin-bottom: 20rpx;
+  padding: 22rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.scene-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.scene-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.muted,
+.meta {
+  color: #6b7787;
+  font-size: 24rpx;
+}
+
+.meta,
+.conflict,
+.beat {
+  margin-top: 12rpx;
+}
+
+.conflict {
+  color: #9a3d11;
+}
+
+.beat {
+  display: grid;
+  grid-template-columns: 130rpx 1fr;
+  gap: 12rpx;
+  color: #415166;
+  line-height: 1.5;
+}
+
+.beat-type {
+  color: #1f6feb;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "YAML 编辑",
+  "usingComponents": {
+    "yaml-viewer": "/components/yaml-viewer/yaml-viewer",
+    "validation-panel": "/components/validation-panel/validation-panel"
+  }
+}

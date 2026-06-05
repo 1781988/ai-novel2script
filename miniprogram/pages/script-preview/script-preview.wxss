@@ -1,0 +1,29 @@
+.page-title {
+  margin-bottom: 12rpx;
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.panel-title {
+  margin-bottom: 16rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx;
+  margin-top: 22rpx;
+}
+
+.list-row {
+  padding: 14rpx 0;
+  border-top: 1rpx solid #edf1f6;
+  color: #415166;
+  line-height: 1.5;
+}
+
+.list-row:first-of-type {
+  border-top: 0;
+}

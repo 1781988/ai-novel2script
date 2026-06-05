@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="panel">
+    <view class="page-title">场景编辑</view>
+    <label class="field-label">标题</label>
+    <input value="{{scene.title}}" data-field="title" bindinput="onFieldInput" />
+    <label class="field-label">时间</label>
+    <input value="{{scene.time}}" data-field="time" bindinput="onFieldInput" />
+    <label class="field-label">地点</label>
+    <input value="{{scene.location}}" data-field="location" bindinput="onFieldInput" />
+    <label class="field-label">人物</label>
+    <input value="{{charactersText}}" bindinput="onCharactersInput" />
+    <label class="field-label">冲突</label>
+    <input value="{{scene.conflict}}" data-field="conflict" bindinput="onFieldInput" />
+  </view>
+
+  <view class="section panel">
+    <view class="panel-title">Beats</view>
+    <view class="beat-editor" wx:for="{{scene.beats}}" wx:key="index">
+      <picker mode="selector" range="{{beatTypes}}" value="{{item.typeIndex || 0}}" data-index="{{index}}" bindchange="onBeatTypeChange">
+        <view class="picker-value">{{item.type}}</view>
+      </picker>
+      <textarea value="{{item.content}}" data-index="{{index}}" bindinput="onBeatContentInput"></textarea>
+      <view class="button-grid">
+        <button class="secondary-button" data-index="{{index}}" bindtap="moveBeatUp">上移</button>
+        <button class="secondary-button" data-index="{{index}}" bindtap="moveBeatDown">下移</button>
+        <button class="secondary-button" data-index="{{index}}" bindtap="polishBeat">润色</button>
+        <button class="secondary-button" data-index="{{index}}" bindtap="deleteBeat">删除</button>
+      </view>
+    </view>
+    <button class="secondary-button" bindtap="addBeat">新增 beat</button>
+    <button class="primary-button submit-button" bindtap="saveScene">保存场景</button>
+  </view>
+</view>

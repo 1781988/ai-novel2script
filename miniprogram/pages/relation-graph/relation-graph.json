@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "人物关系图",
+  "usingComponents": {
+    "relation-canvas": "/components/relation-canvas/relation-canvas"
+  }
+}

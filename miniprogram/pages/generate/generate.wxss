@@ -60,3 +60,10 @@
   font-size: 24rpx;
   line-height: 1.5;
 }
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-bottom: 18rpx;
+}

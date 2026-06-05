@@ -1,0 +1,9 @@
+.page-title {
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.list-row {
+  padding: 14rpx 0;
+  border-top: 1rpx solid #edf1f6;
+}

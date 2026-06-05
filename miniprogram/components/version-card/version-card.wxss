@@ -1,0 +1,26 @@
+.version-card {
+  margin-bottom: 18rpx;
+  padding: 22rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12rpx;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.muted {
+  color: #6b7787;
+}
+
+.summary {
+  margin: 12rpx 0;
+  color: #415166;
+}

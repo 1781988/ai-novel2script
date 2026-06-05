@@ -1,0 +1,1 @@
+<canvas class="relation-canvas" canvas-id="relationCanvas" bindtap="onTap"></canvas>

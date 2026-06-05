@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="panel">
+    <view class="page-title">人物关系图</view>
+    <view class="muted">点击图谱查看关系证据。</view>
+  </view>
+  <view class="section">
+    <relation-canvas characters="{{characters}}" relations="{{relations}}" bind:select="onSelect" />
+  </view>
+  <view class="section panel">
+    <view class="list-row" wx:for="{{relations}}" wx:key="relationId">{{item.source}} - {{item.target}}：{{item.description || item.relation}}</view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "版本记录",
+  "usingComponents": {
+    "version-card": "/components/version-card/version-card"
+  }
+}

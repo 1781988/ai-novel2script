@@ -15,7 +15,7 @@
 
 ## 当前状态
 
-当前分支完成了基础工程、小说导入解析和 AI 生成主流程：
+当前分支完成了基础工程、小说导入解析、AI 生成主流程和剧本质量控制能力：
 
 - 微信小程序基础目录与工程配置
 - 首页
@@ -30,6 +30,9 @@
 - DeepSeek / Gemini / OpenAI 云函数适配器
 - `extractInfo`、`planEpisodes`、`splitScenes`、`generateScript` 云函数
 - AI 生成页
+- YAML Schema 校验与 AI 修复云函数
+- 剧本预览、场景编辑、YAML 编辑、人物关系图、版本记录页面
+- 对白润色和版本保存云函数
 - 示例三章节小说
 - 剧本 Schema 初始文件
 
@@ -42,6 +45,10 @@ cloudfunctions/
   planEpisodes/            短剧分集规划
   splitScenes/             场景拆分
   generateScript/          生成结构化剧本 YAML
+  validateYaml/            YAML Schema 校验
+  repairYaml/              AI 修复 YAML
+  polishDialogue/          对白润色
+  saveVersion/             保存剧本版本
 examples/
   sample_novel_3chapters.txt
 miniprogram/
@@ -50,6 +57,11 @@ miniprogram/
   pages/import/            小说导入页
   pages/chapter-review/    章节检查页
   pages/generate/          AI 生成页
+  pages/script-preview/    剧本预览页
+  pages/scene-editor/      场景编辑页
+  pages/yaml-editor/       YAML 编辑页
+  pages/relation-graph/    人物关系图页
+  pages/version-history/   版本记录页
   pages/settings/          模型设置页
 schema/
   screenplay.schema.json   剧本结构校验 Schema
@@ -66,7 +78,7 @@ project.config.json        微信开发者工具工程配置
 4. 在云数据库中创建 `projects` 集合。
 5. 在云数据库中创建 `chapters` 集合。
 6. 在云数据库中创建 `extracted_infos`、`episodes`、`scripts`、`script_versions`、`generation_logs` 集合。
-7. 上传并部署 `cloudfunctions/initProject`、`cloudfunctions/parseNovel`、`cloudfunctions/uploadNovelFile`、`cloudfunctions/extractInfo`、`cloudfunctions/planEpisodes`、`cloudfunctions/splitScenes`、`cloudfunctions/generateScript`。
+7. 上传并部署 `cloudfunctions/initProject`、`cloudfunctions/parseNovel`、`cloudfunctions/uploadNovelFile`、`cloudfunctions/extractInfo`、`cloudfunctions/planEpisodes`、`cloudfunctions/splitScenes`、`cloudfunctions/generateScript`、`cloudfunctions/validateYaml`、`cloudfunctions/repairYaml`、`cloudfunctions/polishDialogue`、`cloudfunctions/saveVersion`。
 8. 打开小程序首页，进入“新建改编项目”创建测试项目。
 9. 进入“导入小说文本”，粘贴或上传 3 章以上小说，查看章节检查结果。
 10. 在章节检查页进入 AI 生成页，生成剧本 YAML 初稿。
@@ -123,6 +135,22 @@ project.config.json        微信开发者工具工程配置
 
 串联 AI 生成流程，生成结构化 YAML，并保存到 `scripts` 和 `script_versions` 集合。
 
+### validateYaml
+
+解析剧本 YAML，并检查 `schema_version`、`metadata`、`source`、`characters`、`episodes`、`scenes` 和场景 beats。
+
+### repairYaml
+
+根据校验错误修复 YAML。配置模型 API Key 时调用大模型；未配置时使用规则化修复保证基础结构完整。
+
+### polishDialogue
+
+润色单句对白，让 dialogue beat 更口语、更有戏剧张力。
+
+### saveVersion
+
+把用户编辑后的 YAML 保存为新的剧本版本。
+
 ## 模型配置
 
 API Key 不会写入小程序前端代码。模型调用统一放在云函数中，通过云函数环境变量读取 DeepSeek、Gemini 或 OpenAI 的配置。
@@ -162,6 +190,7 @@ OPENAI_MODEL=gpt-4.1-mini
 - `wx-server-sdk`：云函数访问云数据库和用户上下文
 - `mammoth`：DOCX 小说正文提取
 - `js-yaml`：后续 YAML 解析与格式处理
+- `ajv`：YAML Schema 校验
 
 ## Demo
 

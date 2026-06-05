@@ -103,5 +103,13 @@ Page({
 
   sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  },
+
+  goPreview() {
+    wx.navigateTo({ url: "/pages/script-preview/script-preview" });
+  },
+
+  goYamlEditor() {
+    wx.navigateTo({ url: "/pages/yaml-editor/yaml-editor" });
   }
 });

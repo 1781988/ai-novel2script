@@ -1,0 +1,9 @@
+<view class="page">
+  <view class="panel">
+    <view class="page-title">版本记录</view>
+    <button class="secondary-button" bindtap="loadLocalVersions">刷新本地版本</button>
+  </view>
+  <view class="section">
+    <version-card wx:for="{{versions}}" wx:key="versionNo" version="{{item}}" bind:restore="restoreVersion" />
+  </view>
+</view>
