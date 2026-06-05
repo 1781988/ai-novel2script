@@ -7,6 +7,9 @@
       <button class="secondary-button" bindtap="goRelations">人物关系图</button>
       <button class="secondary-button" bindtap="goVersions">版本记录</button>
       <button class="secondary-button" bindtap="saveVersion">保存版本</button>
+      <button class="secondary-button" data-format="yaml" bindtap="exportScript">导出 YAML</button>
+      <button class="secondary-button" data-format="markdown" bindtap="exportScript">导出 Markdown</button>
+      <button class="secondary-button" data-format="txt" bindtap="exportScript">导出 TXT</button>
     </view>
   </view>
 

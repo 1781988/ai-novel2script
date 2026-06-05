@@ -1,0 +1,9 @@
+{
+  "name": "export-script",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "wx-server-sdk": "latest"
+  }
+}

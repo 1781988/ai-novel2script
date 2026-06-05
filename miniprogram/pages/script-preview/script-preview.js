@@ -75,5 +75,29 @@ Page({
       });
       wx.setStorageSync("localVersions", versions);
     }
+  },
+
+  async exportScript(event) {
+    const format = event.currentTarget.dataset.format;
+    const result = wx.getStorageSync("latestScriptResult") || {};
+    try {
+      const response = await wx.cloud.callFunction({
+        name: "exportScript",
+        data: {
+          format,
+          scriptId: result.scriptId || "",
+          yamlContent: result.yamlContent || "",
+          jsonContent: result.screenplay || {}
+        }
+      });
+      const output = response.result || {};
+      if (output.fileID) {
+        await wx.cloud.downloadFile({ fileID: output.fileID });
+      }
+      wx.setStorageSync(`export_${format}`, output.content || "");
+      wx.showToast({ title: "导出完成", icon: "none" });
+    } catch (error) {
+      wx.showToast({ title: error.message || "导出失败", icon: "none" });
+    }
   }
 });
