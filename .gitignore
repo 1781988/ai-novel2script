@@ -2,12 +2,15 @@
 miniprogram_npm/
 node_modules/
 project.private.config.json
+miniprogram/project.config.json
 .env
 .env.*
 
 # Local planning notes, keep README.md public
 overview.md
 开发文档.md
+指导.md
+演示demo.md
 docs/
 
 # Build and cache

@@ -1,5 +1,6 @@
 <view class="page generate-page">
-  <view class="panel">
+  <view class="panel generate-hero">
+    <text class="eyebrow">Script Engine</text>
     <view class="page-title">AI 剧本生成</view>
     <view class="muted">按信息抽取、分集规划、场景拆分和 YAML 生成分阶段执行。</view>
 
@@ -9,7 +10,7 @@
     <button class="primary-button submit-button" bindtap="startGenerate" loading="{{generating}}">开始生成剧本 YAML</button>
   </view>
 
-  <view class="section panel">
+  <view class="section panel progress-panel">
     <view class="panel-title">生成进度</view>
     <view class="step-row {{item.status}}" wx:for="{{steps}}" wx:key="name">
       <text class="step-dot"></text>

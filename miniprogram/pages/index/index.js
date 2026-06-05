@@ -1,9 +1,10 @@
 Page({
   data: {
     flow: [
-      { name: "创建项目", desc: "记录小说标题、作者、题材和目标短剧时长。" },
-      { name: "导入小说", desc: "支持粘贴文本和上传 TXT、Markdown、DOCX。" },
-      { name: "生成剧本", desc: "由云函数驱动 AI 生成 YAML 剧本并进行 Schema 校验。" }
+      { name: "建档", desc: "记录作品信息、改编目标和短剧时长，形成创作工程。", icon: "▰" },
+      { name: "拆章", desc: "清洗文本，识别章节边界，为后续抽取建立来源索引。", icon: "▤" },
+      { name: "成幕", desc: "抽取人物与冲突，规划分集和场景，生成结构化剧本。", icon: "▸", color: "green" },
+      { name: "校验", desc: "校验 YAML 合法性，AI 自动修复，确保规范可用。", icon: "✓", color: "orange" }
     ]
   },
 

@@ -2,13 +2,14 @@
   margin-bottom: 12rpx;
   font-size: 42rpx;
   font-weight: 700;
+  color: #111a3b;
 }
 
 .picker-value {
   display: flex;
   align-items: center;
   min-height: 88rpx;
-  color: #172331;
+  color: #111a3b;
 }
 
 .submit-button {

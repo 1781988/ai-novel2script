@@ -1,24 +1,26 @@
 .info-card {
   margin-bottom: 18rpx;
   padding: 22rpx;
-  border: 1rpx solid #d9e1ec;
-  border-radius: 8rpx;
+  border: 1rpx solid rgba(122, 101, 255, 0.12);
+  border-radius: 24rpx;
   background: #ffffff;
+  box-shadow: 0 14rpx 36rpx rgba(78, 91, 177, 0.1);
 }
 
 .card-title {
   font-size: 30rpx;
   font-weight: 700;
+  color: #111a3b;
 }
 
 .muted {
   margin-top: 6rpx;
-  color: #6b7787;
+  color: #697189;
   font-size: 24rpx;
 }
 
 .desc {
   margin-top: 12rpx;
-  color: #415166;
+  color: #4f5873;
   line-height: 1.5;
 }
