@@ -1,6 +1,6 @@
 <view class="page home-page">
   <view class="top-brand">
-    <view class="brand-icon">✒</view>
+    <view class="brand-icon"><view class="brand-feather"></view></view>
     <view>
       <view class="app-name">章幕引擎</view>
       <view class="app-sub">AI小说改编工具</view>
@@ -21,17 +21,17 @@
     </view>
     <view class="metrics">
       <view class="metric">
-        <text class="metric-icon">▤</text>
+        <view class="metric-icon book-icon"></view>
         <text class="metric-value">3+</text>
         <text class="metric-label">章节输入</text>
       </view>
       <view class="metric">
-        <text class="metric-icon green">▧</text>
+        <view class="metric-icon yaml-icon green"></view>
         <text class="metric-value">YAML</text>
         <text class="metric-label">结构剧本</text>
       </view>
       <view class="metric">
-        <text class="metric-icon">☻</text>
+        <view class="metric-icon ai-icon"></view>
         <text class="metric-value">AI</text>
         <text class="metric-label">分阶段生成</text>
       </view>
@@ -41,22 +41,22 @@
   <view class="actions">
     <view class="action-grid">
       <view class="tool" bindtap="goImport">
-        <view class="tool-icon purple">▰</view>
+        <view class="tool-icon purple"><view class="folder-shape"></view></view>
         <view class="tool-title">导入小说</view>
         <view class="tool-sub">多格式支持</view>
       </view>
       <view class="tool" bindtap="useSample">
-        <view class="tool-icon green">▤</view>
+        <view class="tool-icon green"><view class="doc-shape"></view></view>
         <view class="tool-title">示例体验</view>
         <view class="tool-sub">快速上手</view>
       </view>
       <view class="tool" bindtap="showComingSoon">
-        <view class="tool-icon blue">◷</view>
+        <view class="tool-icon blue"><view class="clock-shape"></view></view>
         <view class="tool-title">历史剧本</view>
         <view class="tool-sub">查看记录</view>
       </view>
       <view class="tool" bindtap="goSettings">
-        <view class="tool-icon orange">⚙</view>
+        <view class="tool-icon orange"><view class="gear-shape"></view></view>
         <view class="tool-title">模型设置</view>
         <view class="tool-sub">AI模型配置</view>
       </view>
@@ -75,15 +75,15 @@
         <text class="flow-name">{{item.name}}</text>
         <text class="muted">{{item.desc}}</text>
       </view>
-      <text class="flow-icon {{item.color}}">{{item.icon}}</text>
+      <view class="flow-icon {{item.color}}"><view class="flow-glyph"></view></view>
     </view>
   </view>
 
   <view class="tabbar">
-    <view class="tab active">⌂<text>首页</text></view>
-    <view class="tab">▣<text>工程</text></view>
-    <view class="tab create">✒<text>创建</text></view>
-    <view class="tab">⌬<text>关系图</text></view>
-    <view class="tab">♙<text>我的</text></view>
+    <view class="tab active"><view class="tab-icon home"></view><text>首页</text></view>
+    <view class="tab"><view class="tab-icon project"></view><text>工程</text></view>
+    <view class="tab create"><view class="tab-icon feather"></view><text>创建</text></view>
+    <view class="tab"><view class="tab-icon graph"></view><text>关系图</text></view>
+    <view class="tab"><view class="tab-icon user"></view><text>我的</text></view>
   </view>
 </view>

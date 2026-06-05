@@ -1,5 +1,6 @@
 .home-page {
   padding-top: 28rpx;
+  padding-bottom: 190rpx;
 }
 
 .top-brand {
@@ -22,6 +23,25 @@
   font-size: 42rpx;
 }
 
+.brand-feather {
+  width: 34rpx;
+  height: 48rpx;
+  border-radius: 32rpx 32rpx 6rpx 32rpx;
+  background: linear-gradient(135deg, #756bff, #4d59d9);
+  transform: rotate(28deg);
+}
+
+.brand-feather::after {
+  content: "";
+  position: absolute;
+  width: 30rpx;
+  height: 6rpx;
+  margin: 42rpx 0 0 -18rpx;
+  border-radius: 999rpx;
+  background: #756bff;
+  transform: rotate(-28deg);
+}
+
 .app-name {
   color: #121b47;
   font-size: 34rpx;
@@ -36,8 +56,8 @@
 
 .stage-hero {
   position: relative;
-  min-height: 700rpx;
-  padding: 54rpx 34rpx 32rpx;
+  min-height: 560rpx;
+  padding: 44rpx 34rpx 28rpx;
   border-radius: 36rpx;
   background:
     radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.88), transparent 130rpx),
@@ -51,7 +71,7 @@
   position: absolute;
   left: 180rpx;
   right: -100rpx;
-  top: 170rpx;
+  top: 150rpx;
   height: 130rpx;
   border: 16rpx solid rgba(49, 56, 126, 0.16);
   border-left: 0;
@@ -72,7 +92,7 @@
 
 .title {
   display: block;
-  margin-top: 36rpx;
+  margin-top: 28rpx;
   color: #151e4a;
   font-size: 82rpx;
   font-weight: 800;
@@ -82,7 +102,7 @@
 .subtitle {
   display: block;
   max-width: 610rpx;
-  margin-top: 28rpx;
+  margin-top: 20rpx;
   color: #222b59;
   font-size: 32rpx;
   line-height: 1.6;
@@ -96,17 +116,17 @@
 .hero-art {
   position: absolute;
   right: 20rpx;
-  top: 90rpx;
-  width: 270rpx;
-  height: 250rpx;
+  top: 78rpx;
+  width: 250rpx;
+  height: 230rpx;
 }
 
 .paper-roll {
   position: absolute;
   right: 34rpx;
   top: 46rpx;
-  width: 170rpx;
-  height: 200rpx;
+  width: 150rpx;
+  height: 178rpx;
   border-radius: 28rpx;
   background: linear-gradient(135deg, #fffaf3, #f0e6ff);
   transform: rotate(9deg);
@@ -128,7 +148,7 @@
   right: 0;
   top: 44rpx;
   width: 26rpx;
-  height: 230rpx;
+  height: 210rpx;
   border-radius: 999rpx;
   background: #111a3b;
   transform: rotate(38deg);
@@ -164,29 +184,89 @@
   position: absolute;
   left: 34rpx;
   right: 34rpx;
-  bottom: 32rpx;
+  bottom: 26rpx;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18rpx;
 }
 
 .metric {
-  min-height: 116rpx;
-  padding: 22rpx 14rpx;
+  min-height: 104rpx;
+  padding: 18rpx 12rpx;
   border-radius: 22rpx;
   background: rgba(255, 255, 255, 0.78);
   box-shadow: 0 12rpx 24rpx rgba(86, 79, 196, 0.12);
 }
 
 .metric-icon {
+  position: relative;
   float: left;
   margin-right: 12rpx;
-  color: #756bff;
-  font-size: 42rpx;
+  width: 42rpx;
+  height: 42rpx;
 }
 
-.metric-icon.green {
-  color: #50c98b;
+.book-icon {
+  border: 5rpx solid #756bff;
+  border-radius: 6rpx;
+}
+
+.book-icon::after {
+  content: "";
+  position: absolute;
+  left: 16rpx;
+  top: -5rpx;
+  width: 5rpx;
+  height: 42rpx;
+  background: #756bff;
+}
+
+.yaml-icon {
+  border-radius: 8rpx;
+  background: #50c98b;
+}
+
+.yaml-icon::before,
+.yaml-icon::after {
+  content: "";
+  position: absolute;
+  left: 10rpx;
+  right: 10rpx;
+  height: 4rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
+}
+
+.yaml-icon::before {
+  top: 13rpx;
+}
+
+.yaml-icon::after {
+  top: 25rpx;
+}
+
+.ai-icon {
+  border: 5rpx solid #756bff;
+  border-radius: 50%;
+}
+
+.ai-icon::before,
+.ai-icon::after {
+  content: "";
+  position: absolute;
+  top: 13rpx;
+  width: 6rpx;
+  height: 6rpx;
+  border-radius: 50%;
+  background: #756bff;
+}
+
+.ai-icon::before {
+  left: 10rpx;
+}
+
+.ai-icon::after {
+  right: 10rpx;
 }
 
 .metric-value {
@@ -237,7 +317,6 @@
   color: #ffffff;
   background: linear-gradient(135deg, #756bff, #9c79ff);
   box-shadow: 0 16rpx 30rpx rgba(117, 107, 255, 0.24);
-  font-size: 44rpx;
 }
 
 .tool-icon.green {
@@ -250,6 +329,85 @@
 
 .tool-icon.orange {
   background: linear-gradient(135deg, #ffae72, #ff8744);
+}
+
+.folder-shape {
+  width: 46rpx;
+  height: 32rpx;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.folder-shape::before {
+  content: "";
+  position: absolute;
+  width: 24rpx;
+  height: 10rpx;
+  margin-top: -8rpx;
+  border-radius: 6rpx 6rpx 0 0;
+  background: #ffffff;
+}
+
+.doc-shape {
+  width: 36rpx;
+  height: 46rpx;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.doc-shape::before,
+.doc-shape::after {
+  content: "";
+  position: absolute;
+  width: 18rpx;
+  height: 4rpx;
+  margin-left: 9rpx;
+  border-radius: 999rpx;
+  background: #34b979;
+}
+
+.doc-shape::before {
+  margin-top: 14rpx;
+}
+
+.doc-shape::after {
+  margin-top: 25rpx;
+}
+
+.clock-shape {
+  width: 42rpx;
+  height: 42rpx;
+  border: 5rpx solid #ffffff;
+  border-radius: 50%;
+}
+
+.clock-shape::after {
+  content: "";
+  position: absolute;
+  width: 16rpx;
+  height: 5rpx;
+  margin: 18rpx 0 0 20rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
+  transform-origin: left center;
+  transform: rotate(35deg);
+}
+
+.gear-shape {
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
+  border: 8rpx solid #ffffff;
+}
+
+.gear-shape::after {
+  content: "";
+  position: absolute;
+  width: 12rpx;
+  height: 12rpx;
+  margin: 15rpx;
+  border-radius: 50%;
+  background: #ff8744;
 }
 
 .tool-title {
@@ -329,7 +487,24 @@
   border-radius: 20rpx;
   color: #756bff;
   background: #f0efff;
-  font-size: 36rpx;
+}
+
+.flow-glyph {
+  width: 30rpx;
+  height: 22rpx;
+  border-radius: 6rpx;
+  background: currentColor;
+}
+
+.flow-glyph::after {
+  content: "";
+  position: absolute;
+  width: 18rpx;
+  height: 18rpx;
+  margin: -10rpx 0 0 18rpx;
+  border-radius: 6rpx;
+  background: currentColor;
+  opacity: 0.45;
 }
 
 .flow-icon.green {
@@ -363,7 +538,6 @@
   justify-items: center;
   gap: 4rpx;
   color: #80879a;
-  font-size: 34rpx;
 }
 
 .tab text {
@@ -382,4 +556,57 @@
   color: #ffffff;
   background: linear-gradient(135deg, #756bff, #8d6bff);
   box-shadow: 0 18rpx 38rpx rgba(117, 107, 255, 0.35);
+}
+
+.tab-icon {
+  position: relative;
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.tab-icon.home {
+  border-radius: 6rpx;
+  background: currentColor;
+  clip-path: polygon(50% 0, 100% 38%, 86% 38%, 86% 100%, 14% 100%, 14% 38%, 0 38%);
+}
+
+.tab-icon.project {
+  border: 4rpx solid currentColor;
+  border-radius: 6rpx;
+}
+
+.tab-icon.feather {
+  border-radius: 26rpx 26rpx 4rpx 26rpx;
+  background: currentColor;
+  transform: rotate(28deg);
+}
+
+.tab-icon.graph::before,
+.tab-icon.graph::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.tab-icon.graph::before {
+  width: 12rpx;
+  height: 12rpx;
+  left: 2rpx;
+  top: 18rpx;
+  box-shadow: 20rpx -14rpx 0 currentColor, 24rpx 18rpx 0 currentColor;
+}
+
+.tab-icon.graph::after {
+  left: 8rpx;
+  top: 16rpx;
+  width: 28rpx;
+  height: 4rpx;
+  border-radius: 999rpx;
+  transform: rotate(-28deg);
+}
+
+.tab-icon.user {
+  border: 4rpx solid currentColor;
+  border-radius: 50%;
 }
