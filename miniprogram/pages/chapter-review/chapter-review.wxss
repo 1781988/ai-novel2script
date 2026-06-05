@@ -1,0 +1,33 @@
+.summary-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.page-title {
+  margin-bottom: 12rpx;
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.count-badge {
+  flex: 0 0 auto;
+  padding: 12rpx 18rpx;
+  border-radius: 8rpx;
+  color: #ffffff;
+  background: #172331;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.warning {
+  padding: 20rpx;
+  border-radius: 8rpx;
+  color: #9a3d11;
+  background: #fff3ec;
+}
+
+.submit-button {
+  margin-top: 28rpx;
+}

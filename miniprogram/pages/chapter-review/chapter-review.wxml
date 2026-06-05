@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="panel summary-panel">
+    <view>
+      <view class="page-title">章节检查</view>
+      <view class="muted">{{valid ? '章节数量符合生成要求' : '至少需要 3 个章节'}}</view>
+    </view>
+    <view class="count-badge">{{chapters.length}} 章</view>
+  </view>
+
+  <view class="section warning" wx:if="{{!valid}}">
+    <text>{{reason}}</text>
+  </view>
+
+  <view class="section">
+    <chapter-card
+      wx:for="{{chapters}}"
+      wx:key="chapterId"
+      chapter="{{item}}"
+      bind:titlechange="onTitleChange"
+      bind:preview="onPreview"
+    />
+  </view>
+
+  <button class="primary-button submit-button" disabled="{{!valid}}" bindtap="continueGenerate">进入 AI 生成</button>
+</view>

@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/project-create/project-create",
+    "pages/import/import",
+    "pages/chapter-review/chapter-review",
     "pages/settings/settings"
   ],
   "window": {

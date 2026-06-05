@@ -1,0 +1,24 @@
+<view class="page import-page">
+  <view class="panel">
+    <view class="page-title">导入小说文本</view>
+    <view class="muted">支持 3 个章节以上的 TXT、Markdown、DOCX 或手动粘贴文本。</view>
+
+    <label class="field-label">项目 ID</label>
+    <input value="{{projectId}}" placeholder="可选，填写后解析结果会保存到 chapters 集合" bindinput="onProjectIdInput" />
+
+    <label class="field-label">小说正文</label>
+    <textarea class="novel-input" value="{{rawText}}" maxlength="-1" placeholder="粘贴包含第一章、第二章、第三章等标题的小说文本" bindinput="onTextInput"></textarea>
+
+    <view class="button-grid">
+      <button class="secondary-button" bindtap="chooseFile">上传文件</button>
+      <button class="secondary-button" bindtap="loadSample">示例文本</button>
+    </view>
+
+    <button class="primary-button submit-button" bindtap="parseText" loading="{{parsing}}">自动解析章节</button>
+
+    <view class="result-panel {{parseResult.valid ? 'valid' : 'invalid'}}" wx:if="{{parseResult}}">
+      <text>{{parseResult.valid ? '章节识别成功' : parseResult.reason}}</text>
+      <text class="muted">已识别 {{parseResult.chapterCount}} 章</text>
+    </view>
+  </view>
+</view>

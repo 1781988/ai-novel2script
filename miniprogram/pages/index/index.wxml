@@ -7,7 +7,7 @@
 
   <view class="actions">
     <button class="primary-button" bindtap="goCreate">新建改编项目</button>
-    <button class="secondary-button" bindtap="showComingSoon">导入小说文本</button>
+    <button class="secondary-button" bindtap="goImport">导入小说文本</button>
     <button class="secondary-button" bindtap="useSample">使用示例小说</button>
     <button class="secondary-button" bindtap="showComingSoon">历史剧本</button>
     <button class="secondary-button" bindtap="goSettings">模型设置</button>

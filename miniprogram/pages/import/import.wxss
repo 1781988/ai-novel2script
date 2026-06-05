@@ -1,0 +1,46 @@
+.page-title {
+  margin-bottom: 12rpx;
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.novel-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 440rpx;
+  padding: 22rpx;
+  border: 1rpx solid #ccd6e3;
+  border-radius: 8rpx;
+  background: #ffffff;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-top: 24rpx;
+}
+
+.submit-button {
+  margin-top: 24rpx;
+}
+
+.result-panel {
+  display: grid;
+  gap: 8rpx;
+  margin-top: 24rpx;
+  padding: 22rpx;
+  border-radius: 8rpx;
+}
+
+.result-panel.valid {
+  background: #eef6f0;
+  color: #19623a;
+}
+
+.result-panel.invalid {
+  background: #fff3ec;
+  color: #9a3d11;
+}

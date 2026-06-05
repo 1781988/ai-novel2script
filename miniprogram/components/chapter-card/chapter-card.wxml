@@ -1,0 +1,9 @@
+<view class="chapter-card">
+  <view class="chapter-head">
+    <text class="order">第 {{chapter.order}} 章</text>
+    <text class="word-count">{{chapter.wordCount}} 字</text>
+  </view>
+  <input class="title-input" value="{{chapter.title}}" data-order="{{chapter.order}}" bindinput="onTitleInput" />
+  <view class="excerpt">{{excerpt}}</view>
+  <button class="secondary-button preview-button" bindtap="preview">预览正文</button>
+</view>

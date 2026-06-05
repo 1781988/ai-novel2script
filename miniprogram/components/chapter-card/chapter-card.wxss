@@ -1,0 +1,36 @@
+.chapter-card {
+  margin-bottom: 22rpx;
+  padding: 24rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.chapter-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+  color: #6b7787;
+  font-size: 26rpx;
+}
+
+.order {
+  font-weight: 700;
+}
+
+.title-input {
+  min-height: 76rpx;
+  padding: 0 18rpx;
+  font-weight: 700;
+}
+
+.excerpt {
+  margin-top: 16rpx;
+  color: #415166;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.preview-button {
+  margin-top: 18rpx;
+}
