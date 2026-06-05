@@ -1,0 +1,26 @@
+# WeChat miniprogram
+miniprogram_npm/
+node_modules/
+project.private.config.json
+.env
+.env.*
+
+# Local planning notes, keep README.md public
+overview.md
+开发文档.md
+docs/
+
+# Build and cache
+dist/
+coverage/
+.cache/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*

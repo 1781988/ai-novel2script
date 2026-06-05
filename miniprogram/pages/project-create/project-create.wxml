@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="panel">
+    <view class="page-title">新建改编项目</view>
+    <view class="muted">创建后会写入 projects 集合，后续用于导入章节和生成剧本。</view>
+
+    <form bindsubmit="submitProject">
+      <label class="field-label">项目名称</label>
+      <input name="projectName" value="{{form.projectName}}" placeholder="例如：雨夜来客改编" bindinput="onInput" data-field="projectName" />
+
+      <label class="field-label">小说标题</label>
+      <input name="novelTitle" value="{{form.novelTitle}}" placeholder="例如：雨夜来客" bindinput="onInput" data-field="novelTitle" />
+
+      <label class="field-label">作者</label>
+      <input name="authorName" value="{{form.authorName}}" placeholder="原小说作者" bindinput="onInput" data-field="authorName" />
+
+      <label class="field-label">题材</label>
+      <picker mode="selector" range="{{genres}}" value="{{genreIndex}}" bindchange="onGenreChange">
+        <view class="picker-value">{{form.genre}}</view>
+      </picker>
+
+      <label class="field-label">目标类型</label>
+      <picker mode="selector" range="{{targetLabels}}" value="0" disabled>
+        <view class="picker-value">短剧</view>
+      </picker>
+
+      <label class="field-label">单集目标分钟数</label>
+      <input name="episodeTargetMinutes" type="number" value="{{form.episodeTargetMinutes}}" bindinput="onInput" data-field="episodeTargetMinutes" />
+
+      <button class="primary-button submit-button" form-type="submit" loading="{{submitting}}">创建项目</button>
+    </form>
+  </view>
+</view>

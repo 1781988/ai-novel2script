@@ -1,0 +1,16 @@
+.page-title {
+  margin-bottom: 12rpx;
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.picker-value {
+  display: flex;
+  align-items: center;
+  min-height: 88rpx;
+  color: #172331;
+}
+
+.submit-button {
+  margin-top: 36rpx;
+}

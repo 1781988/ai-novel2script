@@ -1,0 +1,68 @@
+.home-page {
+  padding-top: 48rpx;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.eyebrow {
+  color: #1f6feb;
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 56rpx;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.subtitle {
+  color: #415166;
+  font-size: 30rpx;
+  line-height: 1.6;
+}
+
+.actions {
+  display: grid;
+  gap: 20rpx;
+  margin-top: 40rpx;
+}
+
+.panel-title {
+  margin-bottom: 16rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.flow-row {
+  display: grid;
+  grid-template-columns: 48rpx 1fr;
+  gap: 10rpx 16rpx;
+  padding: 18rpx 0;
+  border-top: 1rpx solid #edf1f6;
+}
+
+.flow-row:first-of-type {
+  border-top: 0;
+}
+
+.flow-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #172331;
+  font-size: 24rpx;
+}
+
+.flow-row .muted {
+  grid-column: 2;
+  line-height: 1.5;
+}

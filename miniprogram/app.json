@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/project-create/project-create",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "navigationBarTitleText": "章幕引擎",
+    "navigationBarBackgroundColor": "#172331",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f7fb"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

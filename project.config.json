@@ -1,0 +1,19 @@
+{
+  "description": "ChapterStage miniprogram project",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.8.0",
+  "appid": "touristappid",
+  "projectname": "ChapterStage",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/"
+}

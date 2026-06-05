@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/1781988/ai-novel2script/schema/screenplay.schema.json",
+  "title": "ChapterStage Screenplay",
+  "type": "object",
+  "required": ["schema_version", "metadata", "source", "characters", "episodes"],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object"
+    },
+    "characters": {
+      "type": "array"
+    },
+    "episodes": {
+      "type": "array"
+    }
+  }
+}

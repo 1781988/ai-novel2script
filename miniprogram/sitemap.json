@@ -1,0 +1,9 @@
+{
+  "desc": "ChapterStage sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="panel">
+    <view class="page-title">模型设置</view>
+    <view class="muted">API Key 仅通过云函数环境变量配置，前端只保存服务商选择。</view>
+
+    <label class="field-label">模型服务商</label>
+    <picker mode="selector" range="{{providerLabels}}" value="{{providerIndex}}" bindchange="onProviderChange">
+      <view class="picker-value">{{currentProvider.label}}</view>
+    </picker>
+
+    <view class="model-card">
+      <text class="muted">当前模型</text>
+      <text class="model-name">{{currentProvider.model}}</text>
+    </view>
+
+    <button class="secondary-button" bindtap="checkConfig" loading="{{checking}}">检查环境变量</button>
+    <button class="primary-button" bindtap="testConnection" loading="{{testing}}">测试模型连接</button>
+
+    <view class="result" wx:if="{{resultText}}">
+      <text>{{resultText}}</text>
+    </view>
+  </view>
+</view>

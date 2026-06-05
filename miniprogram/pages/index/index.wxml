@@ -1,0 +1,24 @@
+<view class="page home-page">
+  <view class="hero">
+    <text class="eyebrow">ChapterStage</text>
+    <text class="title">章幕引擎</text>
+    <text class="subtitle">把 3 个章节以上的小说整理成可编辑的结构化剧本 YAML 初稿。</text>
+  </view>
+
+  <view class="actions">
+    <button class="primary-button" bindtap="goCreate">新建改编项目</button>
+    <button class="secondary-button" bindtap="showComingSoon">导入小说文本</button>
+    <button class="secondary-button" bindtap="useSample">使用示例小说</button>
+    <button class="secondary-button" bindtap="showComingSoon">历史剧本</button>
+    <button class="secondary-button" bindtap="goSettings">模型设置</button>
+  </view>
+
+  <view class="section panel">
+    <view class="panel-title">基础流程</view>
+    <view class="flow-row" wx:for="{{flow}}" wx:key="name">
+      <text class="flow-index">{{index + 1}}</text>
+      <text>{{item.name}}</text>
+      <text class="muted">{{item.desc}}</text>
+    </view>
+  </view>
+</view>
