@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="panel">
+    <view class="page-title">YAML 编辑</view>
+    <view class="button-grid">
+      <button class="secondary-button" bindtap="formatYaml">格式化</button>
+      <button class="secondary-button" bindtap="validateYaml" loading="{{validating}}">校验</button>
+      <button class="secondary-button" bindtap="repairYaml" loading="{{repairing}}">AI 修复</button>
+      <button class="secondary-button" bindtap="saveVersion">保存版本</button>
+    </view>
+  </view>
+
+  <view class="section" wx:if="{{validation}}">
+    <validation-panel valid="{{validation.valid}}" errors="{{validation.errors}}" />
+  </view>
+
+  <view class="section">
+    <yaml-viewer value="{{yamlContent}}" bind:change="onYamlChange" />
+  </view>
+</view>

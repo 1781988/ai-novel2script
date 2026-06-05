@@ -1,0 +1,4 @@
+<view class="validation {{valid ? 'valid' : 'invalid'}}">
+  <view class="title">{{valid ? 'YAML 校验通过' : 'YAML 校验未通过'}}</view>
+  <view class="error" wx:for="{{errors}}" wx:key="index">{{item.path}}：{{item.message}}</view>
+</view>

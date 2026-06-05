@@ -1,0 +1,7 @@
+.relation-canvas {
+  width: 100%;
+  height: 620rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+  background: #ffffff;
+}

@@ -3,22 +3,62 @@
   "$id": "https://github.com/1781988/ai-novel2script/schema/screenplay.schema.json",
   "title": "ChapterStage Screenplay",
   "type": "object",
-  "required": ["schema_version", "metadata", "source", "characters", "episodes"],
+  "required": ["schema_version", "metadata", "source", "characters", "episodes", "scenes"],
   "properties": {
     "schema_version": {
       "type": "string"
     },
     "metadata": {
-      "type": "object"
+      "type": "object",
+      "required": ["chapter_count"],
+      "properties": {
+        "chapter_count": {
+          "type": "number",
+          "minimum": 3
+        }
+      }
     },
     "source": {
-      "type": "object"
+      "type": "object",
+      "required": ["chapters"],
+      "properties": {
+        "chapters": {
+          "type": "array",
+          "minItems": 3
+        }
+      }
     },
     "characters": {
       "type": "array"
     },
     "episodes": {
       "type": "array"
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["sceneId", "episodeId", "chapterId", "title", "beats"],
+        "properties": {
+          "beats": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["type", "content"],
+              "properties": {
+                "type": {
+                  "enum": ["action", "dialogue", "narration", "transition"]
+                },
+                "content": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

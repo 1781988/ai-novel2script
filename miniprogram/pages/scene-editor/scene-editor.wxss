@@ -1,0 +1,44 @@
+.page-title {
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.panel-title {
+  margin-bottom: 16rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.beat-editor {
+  margin-bottom: 22rpx;
+  padding: 18rpx;
+  border: 1rpx solid #d9e1ec;
+  border-radius: 8rpx;
+}
+
+.picker-value {
+  display: flex;
+  align-items: center;
+  min-height: 76rpx;
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 150rpx;
+  margin-top: 12rpx;
+  padding: 18rpx;
+  border: 1rpx solid #ccd6e3;
+  border-radius: 8rpx;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rpx;
+  margin-top: 12rpx;
+}
+
+.submit-button {
+  margin-top: 22rpx;
+}

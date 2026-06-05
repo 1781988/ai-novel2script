@@ -1,0 +1,23 @@
+.validation {
+  padding: 20rpx;
+  border-radius: 8rpx;
+}
+
+.validation.valid {
+  color: #19623a;
+  background: #eef6f0;
+}
+
+.validation.invalid {
+  color: #9a3d11;
+  background: #fff3ec;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.error {
+  margin-top: 8rpx;
+  line-height: 1.5;
+}

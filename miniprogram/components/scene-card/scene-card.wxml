@@ -1,0 +1,15 @@
+<view class="scene-card">
+  <view class="scene-head">
+    <text class="scene-title">{{scene.title}}</text>
+    <text class="muted">{{scene.sceneId}}</text>
+  </view>
+  <view class="meta">时间：{{scene.time || '未设置'}}</view>
+  <view class="meta">地点：{{scene.location || '未设置'}}</view>
+  <view class="meta">人物：{{charactersText}}</view>
+  <view class="conflict">冲突：{{scene.conflict}}</view>
+  <view class="beat" wx:for="{{scene.beats}}" wx:key="index">
+    <text class="beat-type">{{item.type}}</text>
+    <text>{{item.speaker ? item.speaker + '：' : ''}}{{item.content}}</text>
+  </view>
+  <button class="secondary-button" bindtap="edit">编辑场景</button>
+</view>

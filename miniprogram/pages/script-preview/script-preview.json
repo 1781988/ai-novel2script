@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "剧本预览",
+  "usingComponents": {
+    "scene-card": "/components/scene-card/scene-card"
+  }
+}

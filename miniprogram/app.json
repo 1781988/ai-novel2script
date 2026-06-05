@@ -5,6 +5,11 @@
     "pages/import/import",
     "pages/chapter-review/chapter-review",
     "pages/generate/generate",
+    "pages/script-preview/script-preview",
+    "pages/scene-editor/scene-editor",
+    "pages/yaml-editor/yaml-editor",
+    "pages/relation-graph/relation-graph",
+    "pages/version-history/version-history",
     "pages/settings/settings"
   ],
   "window": {
